@@ -5,6 +5,7 @@ import PageContent from "./components/PageContent/PageContent";
 import Menubar from "./components/Menubar/Menubar";
 import { useDeviceType } from "../../hooks/useMediaQuery";
 import mobileBg from "../../assets/images/menu-bg-mobile.svg";
+import vg from "../../assets/images/menu-bg.svg";
 
 const NineDaysWorkoutPlan = () => {
 

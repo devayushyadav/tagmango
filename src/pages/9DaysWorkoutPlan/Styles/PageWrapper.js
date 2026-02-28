@@ -26,6 +26,10 @@ export const MobileHeader = styled.div`
   .mobile-bg {
     position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
     z-index: -1;
     object-fit: cover;
   }
@@ -34,7 +38,7 @@ export const MobileHeader = styled.div`
       props.theme.mode === "dark"
         ? "rgb(0 0 0 / 79%)"
         : "rgb(255 255 255 / 29%)"};
-    backdrop-filter: blur(4px) saturate(196%);
+    backdrop-filter: blur(8px) saturate(200%);
     box-shadow: ${(props) =>
       props.theme.mode === "dark"
         ? "0 8px 32px rgba(0, 0, 0, 0.3)"
@@ -188,19 +192,11 @@ export const WorkoutPlanMenuBar = styled.div`
       max-width: 100%;
       padding: 12px 0;
       border-radius: 0 0 24px 24px;
-      border: 1px solid
-        ${(props) =>
-          props.theme.mode === "dark"
-            ? "rgba(255, 255, 255, 0.12)"
-            : "rgba(255, 255, 255, 0.25)"};
       scrollbar-width: none;
       -ms-overflow-style: none;
 
       &::-webkit-scrollbar {
         display: none;
-      }
-      @media (max-width: 768px) {
-        border: none;
       }
     }
 

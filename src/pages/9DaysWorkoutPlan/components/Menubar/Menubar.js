@@ -21,7 +21,7 @@ const Menubar = () => {
   const currentDay = parseInt(day, 10);
 
   useEffect(() => {
-    if (activeRef.current && !isSmallDevice) {
+    if (activeRef.current && isSmallDevice) {
       activeRef.current.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
