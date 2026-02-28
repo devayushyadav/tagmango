@@ -17,6 +17,31 @@ export const WorkoutPlanWrapper = styled.div`
   }
 `;
 
+export const MobileHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 24px 24px;
+  .mobile-bg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    object-fit: cover;
+  }
+  .navigation-container {
+    background: ${(props) =>
+      props.theme.mode === "dark"
+        ? "rgb(0 0 0 / 79%)"
+        : "rgb(255 255 255 / 29%)"};
+    backdrop-filter: blur(4px) saturate(196%);
+    box-shadow: ${(props) =>
+      props.theme.mode === "dark"
+        ? "0 8px 32px rgba(0, 0, 0, 0.3)"
+        : "0 8px 32px rgba(31, 38, 135, 0.1)"};
+  }
+`;
+
 export const WorkoutPlanMenuBar = styled.div`
   max-width: 258px;
   width: 100%;
@@ -37,7 +62,10 @@ export const WorkoutPlanMenuBar = styled.div`
     padding-left: 8px;
     padding-right: 8px;
     padding-bottom: 12px;
-
+    @media (max-width: 768px) {
+      max-height: none;
+      overflow-y: visible;
+    }
     background: ${(props) =>
       props.theme.mode === "dark"
         ? "rgb(0 0 0 / 79%)"
@@ -47,6 +75,11 @@ export const WorkoutPlanMenuBar = styled.div`
       props.theme.mode === "dark"
         ? "0 8px 32px rgba(0, 0, 0, 0.3)"
         : "0 8px 32px rgba(31, 38, 135, 0.1)"};
+    @media (max-width: 768px) {
+      backdrop-filter: none;
+      box-shadow: none;
+      background: transparent;
+    }
   }
 
   .navigation-links-container::-webkit-scrollbar {
@@ -93,7 +126,7 @@ export const WorkoutPlanMenuBar = styled.div`
       margin-right: -14px;
       @media (max-width: 768px) {
         margin-bottom: -12px;
-        padding-bottom: 21px;
+        padding: 8px 16px 21px;
       }
     }
   }
@@ -165,6 +198,9 @@ export const WorkoutPlanMenuBar = styled.div`
 
       &::-webkit-scrollbar {
         display: none;
+      }
+      @media (max-width: 768px) {
+        border: none;
       }
     }
 

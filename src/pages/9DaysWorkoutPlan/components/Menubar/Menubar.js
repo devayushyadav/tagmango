@@ -21,14 +21,14 @@ const Menubar = () => {
   const currentDay = parseInt(day, 10);
 
   useEffect(() => {
-    if (activeRef.current) {
+    if (activeRef.current && !isSmallDevice) {
       activeRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "center",
+        block: "nearest",
         inline: "center",
       });
     }
-  }, [day]);
+  }, [day, isSmallDevice]);
 
   return (
     <WorkoutPlanMenuBar>

@@ -20,6 +20,8 @@ export const BarWrapper = styled.div`
     top: 0;
     padding: 8px;
     gap: 8px;
+    background: transparent;
+    border: none;
   }
 `;
 
