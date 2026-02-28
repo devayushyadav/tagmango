@@ -9,7 +9,7 @@ export const BarWrapper = styled.div`
   background-color: ${(props) =>
     props.theme.bg.pageBar || props.theme.bg.primary};
   position: sticky;
-  top: 60px;
+  top: 61px;
   z-index: 1;
   padding: 0 24px 0 18px;
   height: 56px;

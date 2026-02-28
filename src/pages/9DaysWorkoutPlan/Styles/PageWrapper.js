@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import curveLight from "../../../assets/images/lightmodesvgs/top-corner.png";
+import curveDark from "../../../assets/images/darkmodesvgs/top-corner-dark.png";
+import menuBg from "../../../assets/images/menu-bg.svg";
 
 export const WorkoutPlanPageWrapper = styled.div`
   max-width: 1440px;
@@ -15,8 +18,9 @@ export const WorkoutPlanWrapper = styled.div`
 `;
 
 export const WorkoutPlanMenuBar = styled.div`
-  background: rgba(48, 0, 64, 0.06);
-  max-width: 258px;
+  background: url(${menuBg}) no-repeat center center;
+  background-size: cover;
+  max-width: 250px;
   width: 100%;
   padding: 76px 0 0 8px;
   display: flex;
@@ -54,10 +58,43 @@ export const WorkoutPlanMenuBar = styled.div`
       color: ${(props) =>
         props.theme.mode === "dark" ? "#ffffff" : "rgba(33, 31, 38, 1)"};
       border-radius: 50px 0 0 50px;
+      margin-right: -5px;
     }
   }
 
+  .menu-link.active-link {
+    position: relative;
+  }
+
+  .menu-link.active-link:before {
+    content: "";
+    position: absolute;
+    width: 30px; /* adjust size */
+    height: 30px;
+    background-image: ${(props) =>
+      props.theme.mode === "dark" ? `url(${curveDark})` : `url(${curveLight})`};
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -25px;
+    right: -8px;
+  }
+
+  .menu-link.active-link:after {
+    content: "";
+    position: absolute;
+    width: 30px; /* adjust size */
+    height: 30px;
+    background-image: ${(props) =>
+      props.theme.mode === "dark" ? `url(${curveDark})` : `url(${curveLight})`};
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: -23px;
+    right: -4px;
+    transform: rotate(270deg);
+  }
+
   @media (max-width: 768px) {
+    background: none;
     flex-direction: row;
     width: 100%;
     overflow-x: auto;
@@ -66,6 +103,7 @@ export const WorkoutPlanMenuBar = styled.div`
     border-radius: 0 0 24px 24px;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    max-width: 100%;
 
     &::-webkit-scrollbar {
       display: none;
@@ -81,6 +119,14 @@ export const WorkoutPlanMenuBar = styled.div`
       align-items: center;
       padding: 8px 16px;
       gap: 8px;
+
+      &:first-child {
+        margin-left: calc(50% - 28px);
+      }
+
+      &:last-child {
+        margin-right: calc(50% - 28px);
+      }
 
       &.active-link {
         border-radius: 50px 50px 0 0;

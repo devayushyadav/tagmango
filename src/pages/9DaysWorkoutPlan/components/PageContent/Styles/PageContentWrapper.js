@@ -21,6 +21,15 @@ export const ConfettiContainer = styled.div`
     margin: 0 auto;
     transition: color 0.2s ease;
   }
+  @media (max-width: 768px) {
+    border: 1px solid rgba(40, 104, 74, 1);
+    border-bottom-width: 0; /* remove bottom border so it visually joins with post card */
+    border-radius: 12px 12px 0 0;
+    width: 100%;
+    max-width: calc(100% - 24px);
+    background-position: top;
+    background-size: contain;
+  }
 `;
 
 export const MyPostCard = styled.div`
@@ -38,6 +47,15 @@ export const MyPostCard = styled.div`
     background-color 0.2s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease;
+
+  @media (max-width: 768px) {
+    border-color: rgba(40, 104, 74, 1);
+    /* visually join with ConfettiContainer on mobile */
+    margin-top: -80px; /* small overlap to remove gap */
+    border-top-width: 0px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 `;
 
 export const OthersPost = styled.div`

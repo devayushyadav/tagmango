@@ -32,7 +32,7 @@ export const lightTheme = {
   accent: {
     purple: "#7c3aed",
     green: "#218358",
-    greenBg: "#e6f6eb",
+    greenBg: "#7bd29f40",
   },
   // Component specific
   streakPill: {
@@ -53,7 +53,7 @@ export const darkTheme = {
     secondary: "#0a0a0a",
     tertiary: "#121212",
     header: "rgba(26, 25, 27, 1)",
-    pageBar: "rgba(29, 29, 33, 0.7)",
+    pageBar: "rgba(29, 29, 33)",
     post: "rgba(26, 25, 27, 1)",
   },
   // Text colors
@@ -79,7 +79,7 @@ export const darkTheme = {
   accent: {
     purple: "#a78bfa",
     green: "#4ade80",
-    greenBg: "#064e3b",
+    greenBg: "#7bd29f40",
   },
   // Component specific
   streakPill: {

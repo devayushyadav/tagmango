@@ -11,7 +11,7 @@
 }
 
 [data-theme="dark"] {
-  --theme-bg-primary: #0f172a;
+  --theme-bg-primary: #000;
   --theme-bg-secondary: #1e293b;
   --theme-bg-tertiary: #334155;
   --theme-text-primary: #f1f5f9;

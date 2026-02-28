@@ -1,10 +1,12 @@
 import { NavLink, useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { WorkoutPlanMenuBar } from "../../Styles/PageWrapper";
 import { useDeviceType } from "../../../../hooks/useMediaQuery";
 import CheckIcon from "../../../../assets/images/greenCheck.svg";
 import LockLight from "../../../../assets/images/lightmodesvgs/lock.svg";
 import LockDark from "../../../../assets/images/darkmodesvgs/lock.svg";
 import { useTheme } from "../../../../context/ThemeContext";
+// import bgImage from "../../../../assets/images/menu-bg.svg";
 
 const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -12,17 +14,30 @@ const Menubar = () => {
   const { day } = useParams();
   const [isSmallDevice] = useDeviceType();
   const { theme } = useTheme();
+  const activeRef = useRef(null);
 
   const lockIcon = theme === "light" ? LockLight : LockDark;
 
   const currentDay = parseInt(day, 10);
 
+  useEffect(() => {
+    if (activeRef.current) {
+      activeRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
+  }, [day]);
+
   return (
     <WorkoutPlanMenuBar>
+      {/* <img src={bgImage} alt="Menu Background" className="menu-bg" /> */}
       {pages.map((page) => (
         <NavLink
           to={`/9-day-workout-plan/${page}`}
           key={page}
+          ref={currentDay === page ? activeRef : null}
           className={({ isActive }) =>
             isActive ? "menu-link active-link" : "menu-link"
           }
