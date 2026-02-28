@@ -7,7 +7,7 @@ const Home = () => {
 
     useEffect(() => {
         navigate('/9-day-workout-plan/1')
-    }, []);
+    }, [navigate]);
 
     return (
         <div>

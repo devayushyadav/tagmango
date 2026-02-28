@@ -5,7 +5,6 @@ import PageContent from "./components/PageContent/PageContent";
 import Menubar from "./components/Menubar/Menubar";
 import { useDeviceType } from "../../hooks/useMediaQuery";
 import mobileBg from "../../assets/images/menu-bg-mobile.svg";
-import vg from "../../assets/images/menu-bg.svg";
 
 const NineDaysWorkoutPlan = () => {
 
@@ -36,21 +35,21 @@ const NineDaysWorkoutPlan = () => {
 
                 {isValidDay ? (
                     <WorkoutPlanWrapper>
-                        {isSmallDevice ?  
-                        <MobileHeader>
-                            <img src={mobileBg} alt="" className="mobile-bg"/>
-                            <div className="navigation-container">
-                                <PageBar
-                                    onBack={handleBack}
-                                    backLabel="Back"
-                                    rightTitle="9-Day Fitness Challenge"
-                                    leftTitle={`Day ${day} of 9`}
-                                    showInfo
-                                />
-                                <Menubar />
-                            </div>
-                        </MobileHeader> :
-                        <Menubar />
+                        {isSmallDevice ?
+                            <MobileHeader>
+                                <img src={mobileBg} alt="" className="mobile-bg" />
+                                <div className="navigation-container">
+                                    <PageBar
+                                        onBack={handleBack}
+                                        backLabel="Back"
+                                        rightTitle="9-Day Fitness Challenge"
+                                        leftTitle={`Day ${day} of 9`}
+                                        showInfo
+                                    />
+                                    <Menubar />
+                                </div>
+                            </MobileHeader> :
+                            <Menubar />
                         }
                         <PageContent />
                     </WorkoutPlanWrapper>

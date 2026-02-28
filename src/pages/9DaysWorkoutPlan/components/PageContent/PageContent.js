@@ -1,4 +1,3 @@
-import React from "react";
 import { useTheme } from "../../../../context/ThemeContext";
 import { WorkoutPlanContent } from "../../Styles/PageWrapper";
 import {
@@ -25,13 +24,11 @@ import {
   PinnedIndicator,
   PostContent,
   PostDescription,
-  ChecklistItem,
-  CheckIcon,
-  ChecklistItemText,
+  ChecklistItem, ChecklistItemText,
   ConfettiContainer,
   EngagementGroup,
   EngageIcon,
-  OthersPost,
+  OthersPost
 } from "./Styles/PageContentWrapper";
 import UserIcon from "../../../../assets/images/user.svg";
 import MyPostImage from "../../../../assets/images/Post.png";
