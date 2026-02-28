@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import curveLight from "../../../assets/images/lightmodesvgs/top-corner.png";
-import curveDark from "../../../assets/images/darkmodesvgs/top-corner-dark.png";
 
 export const WorkoutPlanPageWrapper = styled.div`
   max-width: 1440px;
