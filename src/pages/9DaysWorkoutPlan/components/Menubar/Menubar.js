@@ -6,7 +6,7 @@ import CheckIcon from "../../../../assets/images/greenCheck.svg";
 import LockLight from "../../../../assets/images/lightmodesvgs/lock.svg";
 import LockDark from "../../../../assets/images/darkmodesvgs/lock.svg";
 import { useTheme } from "../../../../context/ThemeContext";
-// import bgImage from "../../../../assets/images/menu-bg.svg";
+import bgImage from "../../../../assets/images/menu-bg.svg";
 
 const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -32,37 +32,41 @@ const Menubar = () => {
 
   return (
     <WorkoutPlanMenuBar>
-      {/* <img src={bgImage} alt="Menu Background" className="menu-bg" /> */}
-      {pages.map((page) => (
-        <NavLink
-          to={`/9-day-workout-plan/${page}`}
-          key={page}
-          ref={currentDay === page ? activeRef : null}
-          className={({ isActive }) =>
-            isActive ? "menu-link active-link" : "menu-link"
-          }
-        >
-          {isSmallDevice ? (
-            <>
-              <span>Day {currentDay < page ? page : ""}</span>
-              {currentDay === page && (
-                <span className="current-day">{currentDay}</span>
-              )}
-              {currentDay > page && <img src={CheckIcon} alt="Completed" />}
-              {currentDay < page && <img src={lockIcon} alt="Locked" />}
-            </>
-          ) : (
-            <>
-              <span>Day - {page}</span>
-              {currentDay >= page ? (
-                <img src={CheckIcon} alt="Completed" />
-              ) : (
-                <img src={lockIcon} alt="Locked" />
-              )}
-            </>
-          )}
-        </NavLink>
-      ))}
+      {!isSmallDevice && (
+        <img src={bgImage} alt="Menu Background" className="menu-bg" />
+      )}
+      <div className="navigation-links-container">
+        {pages.map((page) => (
+          <NavLink
+            to={`/9-day-workout-plan/${page}`}
+            key={page}
+            ref={currentDay === page ? activeRef : null}
+            className={({ isActive }) =>
+              isActive ? "menu-link active-link" : "menu-link"
+            }
+          >
+            {isSmallDevice ? (
+              <>
+                <span>Day {currentDay < page ? page : ""}</span>
+                {currentDay === page && (
+                  <span className="current-day">{currentDay}</span>
+                )}
+                {currentDay > page && <img src={CheckIcon} alt="Completed" />}
+                {currentDay < page && <img src={lockIcon} alt="Locked" />}
+              </>
+            ) : (
+              <>
+                <span>Day - {page}</span>
+                {currentDay >= page ? (
+                  <img src={CheckIcon} alt="Completed" />
+                ) : (
+                  <img src={lockIcon} alt="Locked" />
+                )}
+              </>
+            )}
+          </NavLink>
+        ))}
+      </div>
     </WorkoutPlanMenuBar>
   );
 };

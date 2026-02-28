@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import curveLight from "../../../assets/images/lightmodesvgs/top-corner.png";
 import curveDark from "../../../assets/images/darkmodesvgs/top-corner-dark.png";
-import menuBg from "../../../assets/images/menu-bg.svg";
 
 export const WorkoutPlanPageWrapper = styled.div`
   max-width: 1440px;
@@ -12,24 +11,54 @@ export const WorkoutPlanPageWrapper = styled.div`
 export const WorkoutPlanWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  overflow: visible;
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
 export const WorkoutPlanMenuBar = styled.div`
-  background: url(${menuBg}) no-repeat center center;
-  background-size: cover;
-  max-width: 250px;
+  max-width: 258px;
   width: 100%;
-  padding: 76px 0 0 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-height: calc(100vh - 126px);
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  position: sticky;
+  top: 118px;
+  align-self: flex-start;
+  height: fit-content;
+
+  .navigation-links-container {
+    max-height: calc(100vh - 118px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 76px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 12px;
+
+    background: ${(props) =>
+      props.theme.mode === "dark"
+        ? "rgb(0 0 0 / 79%)"
+        : "rgb(255 255 255 / 29%)"};
+    backdrop-filter: blur(4px) saturate(196%);
+    box-shadow: ${(props) =>
+      props.theme.mode === "dark"
+        ? "0 8px 32px rgba(0, 0, 0, 0.3)"
+        : "0 8px 32px rgba(31, 38, 135, 0.1)"};
+  }
+
+  .navigation-links-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-bg {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    object-fit: cover;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -52,13 +81,16 @@ export const WorkoutPlanMenuBar = styled.div`
     justify-content: space-between;
     border-radius: 50px;
     transition: all 0.2s ease;
+    width: --webkit-fill-available;
+    margin-left: 0;
 
     &.active-link {
       background: ${(props) => (props.theme.mode === "dark" ? "#000" : "#fff")};
       color: ${(props) =>
         props.theme.mode === "dark" ? "#ffffff" : "rgba(33, 31, 38, 1)"};
       border-radius: 50px 0 0 50px;
-      margin-right: -5px;
+      padding-right: 21px;
+      margin-right: -8px;
     }
   }
 
@@ -69,7 +101,7 @@ export const WorkoutPlanMenuBar = styled.div`
   .menu-link.active-link:before {
     content: "";
     position: absolute;
-    width: 30px; /* adjust size */
+    width: 30px;
     height: 30px;
     background-image: ${(props) =>
       props.theme.mode === "dark" ? `url(${curveDark})` : `url(${curveLight})`};
@@ -82,7 +114,7 @@ export const WorkoutPlanMenuBar = styled.div`
   .menu-link.active-link:after {
     content: "";
     position: absolute;
-    width: 30px; /* adjust size */
+    width: 30px;
     height: 30px;
     background-image: ${(props) =>
       props.theme.mode === "dark" ? `url(${curveDark})` : `url(${curveLight})`};
@@ -94,19 +126,29 @@ export const WorkoutPlanMenuBar = styled.div`
   }
 
   @media (max-width: 768px) {
-    background: none;
-    flex-direction: row;
-    width: 100%;
-    overflow-x: auto;
-    max-width: none;
-    padding: 8px 0 6px 0;
-    border-radius: 0 0 24px 24px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    max-width: 100%;
+    position: sticky;
+    top: 0;
+    height: auto;
 
-    &::-webkit-scrollbar {
-      display: none;
+    .navigation-links-container {
+      max-height: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      flex-direction: row;
+      max-width: 100%;
+      padding: 12px 0;
+      border-radius: 0 0 24px 24px;
+      border: 1px solid
+        ${(props) =>
+          props.theme.mode === "dark"
+            ? "rgba(255, 255, 255, 0.12)"
+            : "rgba(255, 255, 255, 0.25)"};
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .menu-link {
@@ -119,6 +161,7 @@ export const WorkoutPlanMenuBar = styled.div`
       align-items: center;
       padding: 8px 16px;
       gap: 8px;
+      margin-left: 0;
 
       &:first-child {
         margin-left: calc(50% - 28px);
@@ -130,6 +173,7 @@ export const WorkoutPlanMenuBar = styled.div`
 
       &.active-link {
         border-radius: 50px 50px 0 0;
+        margin-right: 0;
       }
 
       .current-day {
