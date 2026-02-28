@@ -89,8 +89,12 @@ export const WorkoutPlanMenuBar = styled.div`
       color: ${(props) =>
         props.theme.mode === "dark" ? "#ffffff" : "rgba(33, 31, 38, 1)"};
       border-radius: 50px 0 0 50px;
-      padding-right: 21px;
-      margin-right: -8px;
+      padding-right: 30px;
+      margin-right: -14px;
+      @media (max-width: 768px) {
+        margin-bottom: -12px;
+        padding-bottom: 21px;
+      }
     }
   }
 
@@ -108,7 +112,13 @@ export const WorkoutPlanMenuBar = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
     top: -25px;
-    right: -8px;
+    right: -7px;
+
+    @media (max-width: 768px) {
+      bottom: -5px;
+      left: -17px;
+      top: unset;
+    }
   }
 
   .menu-link.active-link:after {
@@ -123,12 +133,19 @@ export const WorkoutPlanMenuBar = styled.div`
     bottom: -23px;
     right: -4px;
     transform: rotate(270deg);
+
+    @media (max-width: 768px) {
+      bottom: -9px;
+      right: -23px;
+      transform: rotate(90deg);
+    }
   }
 
   @media (max-width: 768px) {
     position: sticky;
     top: 0;
     height: auto;
+    max-width: 100%;
 
     .navigation-links-container {
       max-height: auto;
@@ -173,7 +190,6 @@ export const WorkoutPlanMenuBar = styled.div`
 
       &.active-link {
         border-radius: 50px 50px 0 0;
-        margin-right: 0;
       }
 
       .current-day {
