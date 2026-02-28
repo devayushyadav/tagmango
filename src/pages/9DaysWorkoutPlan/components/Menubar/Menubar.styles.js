@@ -12,7 +12,9 @@ export const WorkoutPlanMenuBar = styled.div`
 
   .navigation-links-container {
     max-height: calc(100vh - 118px);
+    height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
     display: flex;
@@ -20,7 +22,7 @@ export const WorkoutPlanMenuBar = styled.div`
     gap: 12px;
     padding-top: 76px;
     padding-left: 8px;
-    padding-right: 8px;
+    padding-right: 0;
     padding-bottom: 12px;
     
     background: ${(props) =>
@@ -28,13 +30,10 @@ export const WorkoutPlanMenuBar = styled.div`
         ? "rgb(0 0 0 / 79%)"
         : "rgb(255 255 255 / 29%)"};
     backdrop-filter: blur(4px) saturate(196%);
-    box-shadow: ${(props) =>
-      props.theme.mode === "dark"
-        ? "0 8px 32px rgba(0, 0, 0, 0.3)"
-        : "0 8px 32px rgba(31, 38, 135, 0.1)"};
         
     @media (max-width: 768px) {
       max-height: none;
+      height: auto;
       overflow-y: visible;
       backdrop-filter: none;
       box-shadow: none;
@@ -82,8 +81,6 @@ export const WorkoutPlanMenuBar = styled.div`
       color: ${(props) =>
         props.theme.mode === "dark" ? "#ffffff" : "rgba(33, 31, 38, 1)"};
       border-radius: 50px 0 0 50px;
-      padding-right: 30px;
-      margin-right: -14px;
       position: relative;
       
       @media (max-width: 768px) {
