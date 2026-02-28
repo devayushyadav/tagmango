@@ -192,23 +192,21 @@ export const EngagementIcon = styled.span`
   height: 24px;
 `;
 
-export const EngageIcon = styled.div`
+export const EngageIcon = styled.img`
   background-color: ${(props) =>
     props.theme.mode === "light"
       ? "rgba(48, 0, 64, 0.06)"
       : "rgba(167, 139, 250, 0.1)"};
-  height: 100%;
+  height: 30px;
+  width: 30px;
   padding: 6px;
+  box-sizing: border-box;
   border: 1px solid ${(props) => props.theme.border.medium};
   border-radius: 50%;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease;
-  svg,
-  img {
-    height: 18px;
-    width: 18px;
-  }
+  object-fit: contain;
 `;
 
 export const EngagementRight = styled.span`

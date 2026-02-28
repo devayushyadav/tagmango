@@ -56,12 +56,8 @@ const MySubmissionCard = ({ post }) => {
               <EngagementIcon>😊</EngagementIcon>
               <span className="likes">{post.likes}</span>
             </EngagementGroup>
-            <EngageIcon>
-              <img src={reactionIcon} alt="React" />
-            </EngageIcon>
-            <EngageIcon>
-              <img src={commentIcon} alt="Comment" />
-            </EngageIcon>
+            <EngageIcon src={reactionIcon} alt="React" />
+            <EngageIcon src={commentIcon} alt="Comment" />
           </EngagementLeft>
           <EngagementRight>{post.comments} Comments</EngagementRight>
         </PostEngagement>
