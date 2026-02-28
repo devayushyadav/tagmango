@@ -18,15 +18,28 @@ const Menubar = () => {
         <NavLink
           to={`/9-day-workout-plan/${page}`}
           key={page}
-          className="menu-link"
-          activeClassName="active-link"
+          className={({ isActive }) =>
+            isActive ? "menu-link active-link" : "menu-link"
+          }
         >
-          <span>{isSmallDevice ? `Day ${page}` : `Day - ${page}`}</span>
-
-          {currentDay >= page ? (
-            <img src={CheckIcon} alt="Completed" />
+          {isSmallDevice ? (
+            <>
+              <span>Day {currentDay < page ? page : ""}</span>
+              {currentDay === page && (
+                <span className="current-day">{currentDay}</span>
+              )}
+              {currentDay > page && <img src={CheckIcon} alt="Completed" />}
+              {currentDay < page && <img src={LockIcon} alt="Locked" />}
+            </>
           ) : (
-            <img src={LockIcon} alt="Locked" />
+            <>
+              <span>Day - {page}</span>
+              {currentDay >= page ? (
+                <img src={CheckIcon} alt="Completed" />
+              ) : (
+                <img src={LockIcon} alt="Locked" />
+              )}
+            </>
           )}
         </NavLink>
       ))}

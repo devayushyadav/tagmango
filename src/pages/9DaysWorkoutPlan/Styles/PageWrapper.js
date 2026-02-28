@@ -15,16 +15,25 @@ export const WorkoutPlanWrapper = styled.div`
 `;
 
 export const WorkoutPlanMenuBar = styled.div`
-  background: linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, #f7f6fc 100%);
+  background: rgba(48, 0, 64, 0.06);
   max-width: 258px;
   width: 100%;
-  padding-top: 76px;
+  padding: 76px 0 0 8px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  max-height: calc(100vh - 126px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   .menu-link {
     text-decoration: none;
-    color: rgba(33, 31, 38, 1);
+    color: rgba(4, 0, 17, 0.61);
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
@@ -34,25 +43,57 @@ export const WorkoutPlanMenuBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+
     &.active-link {
-      background: rgba(48, 0, 64, 0.06);
+      background: #fff;
+      color: rgba(33, 31, 38, 1);
+      border-radius: 50px 0 0 50px;
     }
   }
+
   @media (max-width: 768px) {
     flex-direction: row;
     width: 100%;
     overflow-x: auto;
     max-width: none;
     padding: 8px 0 6px 0;
-    background: red;
-    .active {
-      background: rgba(48, 0, 64, 0.06);
+    border-radius: 0 0 24px 24px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .menu-link {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 500;
+      text-wrap: nowrap;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 16px;
+      gap: 8px;
+
+      &.active-link {
+        border-radius: 50px 50px 0 0;
+      }
+
+      .current-day {
+        font-weight: 700;
+        font-size: 24px;
+        display: block;
+      }
     }
   }
 `;
 
 export const WorkoutPlanContent = styled.div`
   margin: 0 auto;
+  padding-top: 24px;
   @media (max-width: 768px) {
     padding: 24px 8px 0;
   }

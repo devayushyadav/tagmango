@@ -8,7 +8,10 @@ function App() {
     <Router>
       <PublicLayout>
         <Routes>
-          <Route path="/workout-plan/:day" element={<NineDaysWorkoutPlan />} />
+          <Route
+            path="/9-day-workout-plan/:day"
+            element={<NineDaysWorkoutPlan />}
+          />
         </Routes>
       </PublicLayout>
     </Router>
