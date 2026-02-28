@@ -1,46 +1,11 @@
-import { useTheme } from "../../../../context/ThemeContext";
 import { WorkoutPlanContent } from "../../Styles/PageWrapper";
-import {
-  MyPostCard,
-  PostHeader,
-  PostUserInfo,
-  PostUserAvatar,
-  PostUserDetails,
-  PostUserName,
-  PostUserTime,
-  PostMenuIcon,
-  PostCaption,
-  PostImage,
-  PostEngagement,
-  EngagementLeft,
-  EngagementIcon,
-  EngagementRight,
-  SeeOthersSection,
-  SeeOthersText,
-  SeeOthersAvatars,
-  AvatarCircle,
-  ParticipantsText,
-  OthersPostCard,
-  PinnedIndicator,
-  PostContent,
-  PostDescription,
-  ChecklistItem, ChecklistItemText,
-  ConfettiContainer,
-  EngagementGroup,
-  EngageIcon,
-  OthersPost
-} from "./Styles/PageContentWrapper";
+import MySubmissionCard from "./components/MySubmissionCard";
+import OthersSubmissionCard from "./components/OthersSubmissionCard";
 import UserIcon from "../../../../assets/images/user.svg";
 import MyPostImage from "../../../../assets/images/Post.png";
-import CommentLight from "../../../../assets/images/lightmodesvgs/comment.svg";
-import CommentDark from "../../../../assets/images/darkmodesvgs/comment.svg";
-import ReactionLight from "../../../../assets/images/lightmodesvgs/reaction.svg";
-import ReactionDark from "../../../../assets/images/darkmodesvgs/reaction.svg";
 import Avatar1 from "../../../../assets/images/UserOne.png";
 import Avatar2 from "../../../../assets/images/UserTwo.png";
 import Avatar3 from "../../../../assets/images/UserThree.png";
-import PinLight from "../../../../assets/images/lightmodesvgs/pin.svg";
-import PinDark from "../../../../assets/images/darkmodesvgs/pin.svg";
 
 const PageContent = ({
   myPost = {
@@ -67,102 +32,13 @@ const PageContent = ({
   },
   othersAvatars = [Avatar1, Avatar2, Avatar3],
 }) => {
-  const { theme } = useTheme();
-  const commentIcon = theme === "light" ? CommentLight : CommentDark;
-  const reactionIcon = theme === "light" ? ReactionLight : ReactionDark;
-  const pinIcon = theme === "light" ? PinLight : PinDark;
   return (
     <WorkoutPlanContent>
       {/* My Post Card */}
-
-      <ConfettiContainer>
-        <span>Your Submission</span>
-      </ConfettiContainer>
-      <MyPostCard>
-        <PostHeader>
-          <PostUserInfo>
-            <PostUserAvatar src={myPost.userAvatar} alt={myPost.userName} />
-            <PostUserDetails>
-              <PostUserName>{myPost.userName}</PostUserName>
-              <PostUserTime>{myPost.time}</PostUserTime>
-            </PostUserDetails>
-          </PostUserInfo>
-          <PostMenuIcon>⋯</PostMenuIcon>
-        </PostHeader>
-
-        <PostCaption>{myPost.caption}</PostCaption>
-
-        <PostImage src={myPost.postImage} alt="Post" />
-
-        <PostEngagement>
-          <EngagementLeft>
-            <EngagementGroup>
-              <EngagementIcon>🙏</EngagementIcon>
-              <EngagementIcon>😊</EngagementIcon>
-              <span className="likes">{myPost.likes}</span>
-            </EngagementGroup>
-            <EngageIcon>
-              <img src={reactionIcon} alt="React" />
-            </EngageIcon>
-            <EngageIcon>
-              <img src={commentIcon} alt="Comment" />
-            </EngageIcon>
-          </EngagementLeft>
-          <EngagementRight>{myPost.comments} Comments</EngagementRight>
-        </PostEngagement>
-      </MyPostCard>
+      <MySubmissionCard post={myPost} />
 
       {/* Others Post Card */}
-      <OthersPostCard>
-        <SeeOthersSection>
-          <SeeOthersText>
-            See what others
-            {othersAvatars.length > 0 && (
-              <SeeOthersAvatars>
-                {othersAvatars.slice(0, 3).map((avatar, index) => (
-                  <AvatarCircle key={index} src={avatar} alt="Participant" />
-                ))}
-              </SeeOthersAvatars>
-            )}
-            shared
-          </SeeOthersText>
-          <ParticipantsText>
-            <b>85+</b> participants already completed
-          </ParticipantsText>
-        </SeeOthersSection>
-
-        <OthersPost>
-          {othersPost.isPinned && (
-            <PinnedIndicator>
-              <img src={pinIcon} alt="Pinned" />
-              This is a pinned post
-            </PinnedIndicator>
-          )}
-          <PostHeader>
-            <PostUserInfo>
-              <PostUserAvatar
-                src={othersPost.userAvatar}
-                alt={othersPost.userName}
-              />
-              <PostUserDetails>
-                <PostUserName>{othersPost.userName}</PostUserName>
-                <PostUserTime>{othersPost.time}</PostUserTime>
-              </PostUserDetails>
-            </PostUserInfo>
-            <PostMenuIcon>⋯</PostMenuIcon>
-          </PostHeader>
-
-          <PostContent>
-            <PostDescription>{othersPost.description}</PostDescription>
-
-            {othersPost.checklist.map((item, index) => (
-              <ChecklistItem key={index}>
-                <ChecklistItemText>{item}</ChecklistItemText>
-              </ChecklistItem>
-            ))}
-          </PostContent>
-        </OthersPost>
-      </OthersPostCard>
+      <OthersSubmissionCard post={othersPost} othersAvatars={othersAvatars} />
     </WorkoutPlanContent>
   );
 };

@@ -1,6 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { WorkoutPlanMenuBar } from "../../Styles/PageWrapper";
+import { WorkoutPlanMenuBar } from "./Menubar.styles";
 import { useDeviceType } from "../../../../hooks/useMediaQuery";
 import CheckIcon from "../../../../assets/images/greenCheck.svg";
 import LockLight from "../../../../assets/images/lightmodesvgs/lock.svg";
