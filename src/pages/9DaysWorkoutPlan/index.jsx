@@ -1,7 +1,6 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import PageBar from "../../components/shared/PageBar/PageBar";
-import { WorkoutPlanContent, WorkoutPlanMenuBar, WorkoutPlanPageWrapper, WorkoutPlanWrapper } from "./Styles/PageWrapper";
+import { WorkoutPlanPageWrapper, WorkoutPlanWrapper } from "./Styles/PageWrapper";
 import PageContent from "./components/PageContent/PageContent";
 import Menubar from "./components/Menubar/Menubar";
 
