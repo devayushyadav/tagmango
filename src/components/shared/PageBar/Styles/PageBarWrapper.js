@@ -4,14 +4,18 @@ export const BarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid var(--Colors-Neutral-Neutral-3, #f2eff3);
-  background-color: #ffffff;
+  border: 1px solid
+    ${(props) => props.theme.border.pageBar || props.theme.border.light};
+  background-color: ${(props) =>
+    props.theme.bg.pageBar || props.theme.bg.primary};
   position: sticky;
-  top: 69px;
+  top: 60px;
   z-index: 1;
-  background: #fff;
   padding: 0 24px 0 18px;
   height: 56px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
   @media (max-width: 768px) {
     top: 0;
     padding: 8px;
@@ -26,13 +30,15 @@ export const LeftSection = styled.button`
   padding: 0;
   border: none;
   background: transparent;
-  color: #111827;
+  color: ${(props) => props.theme.text.primary};
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
   font-family: "Be Vietnam Pro", sans-serif;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
 
   &:hover {
     opacity: 0.8;
@@ -42,9 +48,10 @@ export const LeftSection = styled.button`
     &::after {
       content: "";
       margin-left: 16px;
-      border-left: 1px solid #d9d6df;
+      border-left: 1px solid ${(props) => props.theme.border.medium};
       height: 24px;
       width: 2px;
+      transition: border-color 0.2s ease;
     }
     @media (max-width: 768px) {
       display: none;
@@ -60,6 +67,8 @@ export const BackIcon = styled.span`
   height: 24px;
   border-radius: 50%;
   flex-shrink: 0;
+  color: ${(props) => props.theme.text.primary};
+  transition: color 0.2s ease;
 `;
 
 export const LeftText = styled.div`
@@ -68,9 +77,10 @@ export const LeftText = styled.div`
   font-size: 18px;
   font-weight: 600;
   line-height: 26px;
-  color: #111827;
+  color: ${(props) => props.theme.text.primary};
   font-family: "Be Vietnam Pro", sans-serif;
   margin-left: 10px;
+  transition: color 0.2s ease;
   @media (max-width: 768px) {
     display: none;
   }
@@ -83,18 +93,20 @@ export const RightSection = styled.div`
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
-  color: #111827;
+  color: ${(props) => props.theme.text.primary};
   letter-spacing: 0;
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: color 0.2s ease;
   @media (max-width: 768px) {
     width: 100%;
     justify-content: space-between;
     svg {
-      background: rgba(48, 0, 64, 0.06);
+      background: ${(props) => props.theme.bg.tertiary};
       padding: 8px;
       border-radius: 50%;
       height: 24px;
       width: 24px;
+      transition: background-color 0.2s ease;
     }
   }
 `;

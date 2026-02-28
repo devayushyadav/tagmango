@@ -33,7 +33,10 @@ export const WorkoutPlanMenuBar = styled.div`
 
   .menu-link {
     text-decoration: none;
-    color: rgba(4, 0, 17, 0.61);
+    color: ${(props) =>
+      props.theme.mode === "dark"
+        ? "rgba(245, 241, 255, 0.72)"
+        : "rgba(4, 0, 17, 0.61)"};
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
@@ -47,8 +50,9 @@ export const WorkoutPlanMenuBar = styled.div`
     transition: all 0.2s ease;
 
     &.active-link {
-      background: #fff;
-      color: rgba(33, 31, 38, 1);
+      background: ${(props) => (props.theme.mode === "dark" ? "#000" : "#fff")};
+      color: ${(props) =>
+        props.theme.mode === "dark" ? "#ffffff" : "rgba(33, 31, 38, 1)"};
       border-radius: 50px 0 0 50px;
     }
   }

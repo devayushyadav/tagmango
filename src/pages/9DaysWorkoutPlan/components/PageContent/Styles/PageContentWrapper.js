@@ -5,39 +5,46 @@ export const ConfettiContainer = styled.div`
   border-radius: 24px 24px 0 0;
   background: url(${ConfettiImage}) no-repeat center center;
   background-size: cover;
-  background-color: #e6f6eb;
+  background-color: ${(props) => props.theme.accent.greenBg};
   min-height: 100px;
   text-align: center;
   padding: 12px;
+  transition: background-color 0.2s ease;
   span {
     font-family: "Be Vietnam Pro", sans-serif;
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
-    color: rgba(33, 131, 88, 1);
+    color: ${(props) => props.theme.accent.green};
     text-align: center;
     display: block;
     margin: 0 auto;
+    transition: color 0.2s ease;
   }
 `;
 
 export const MyPostCard = styled.div`
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.bg.post || props.theme.bg.primary};
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px ${(props) => props.theme.shadow.md};
   max-width: 640px;
   width: 100%;
   border-radius: 24px;
-  border: 1px solid var(--Colors-Neutral-Neutral-4, rgba(234, 231, 236, 1));
+  border: 1px solid ${(props) => props.theme.border.light};
   margin-top: -80px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 `;
 
 export const OthersPost = styled.div`
   margin: 0 12px;
   border-radius: 24px;
-  border: 1px solid var(--Colors-Neutral-Neutral-4, rgba(234, 231, 236, 1));
+  border: 1px solid ${(props) => props.theme.border.light};
+  transition: border-color 0.2s ease;
 `;
 
 export const PostHeader = styled.div`
@@ -69,16 +76,18 @@ export const PostUserName = styled.p`
   margin: 0;
   font-size: 14px;
   font-weight: 600;
-  color: #111827;
+  color: ${(props) => props.theme.text.primary};
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: color 0.2s ease;
 `;
 
 export const PostUserTime = styled.p`
   margin: 0;
   font-size: 12px;
   font-weight: 400;
-  color: #6b7280;
+  color: ${(props) => props.theme.text.secondary};
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: color 0.2s ease;
 `;
 
 export const PostMenuIcon = styled.button`
@@ -86,14 +95,15 @@ export const PostMenuIcon = styled.button`
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #6b7280;
+  color: ${(props) => props.theme.text.secondary};
   padding: 4px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 0.2s ease;
 
   &:hover {
-    color: #111827;
+    color: ${(props) => props.theme.text.primary};
   }
 `;
 
@@ -102,9 +112,10 @@ export const PostCaption = styled.p`
   padding: 0 16px 16px;
   font-size: 14px;
   font-weight: 400;
-  color: rgba(33, 31, 38, 1);
+  color: ${(props) => props.theme.text.primary};
   line-height: 20px;
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: color 0.2s ease;
 `;
 
 export const PostImage = styled.img`
@@ -119,11 +130,14 @@ export const PostEngagement = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid #f2eff3;
+  border-bottom: 1px solid ${(props) => props.theme.border.light};
   font-size: 13px;
   font-weight: 500;
-  color: #6b7280;
+  color: ${(props) => props.theme.text.secondary};
   font-family: "Be Vietnam Pro", sans-serif;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 `;
 
 export const EngagementLeft = styled.div`
@@ -134,19 +148,24 @@ export const EngagementLeft = styled.div`
 
 export const EngagementGroup = styled.div`
   padding: 4px 12px;
-  background-color: rgba(48, 0, 64, 0.06);
+  background-color: ${(props) =>
+    props.theme.mode === "light"
+      ? "rgba(48, 0, 64, 0.06)"
+      : "rgba(167, 139, 250, 0.1)"};
   border-radius: 50px;
   display: flex;
   flex-direction: row;
   gap: 4px;
   align-items: center;
+  transition: background-color 0.2s ease;
   .likes {
     font-family: Inter;
     font-weight: 500;
     font-style: Medium;
     font-size: 14px;
     line-height: 20px;
-    color: rgba(33, 31, 38, 1);
+    color: ${(props) => props.theme.text.primary};
+    transition: color 0.2s ease;
   }
 `;
 
@@ -156,11 +175,17 @@ export const EngagementIcon = styled.span`
 `;
 
 export const EngageIcon = styled.div`
-  background-color: rgba(48, 0, 64, 0.06);
+  background-color: ${(props) =>
+    props.theme.mode === "light"
+      ? "rgba(48, 0, 64, 0.06)"
+      : "rgba(167, 139, 250, 0.1)"};
   height: 100%;
   padding: 6px;
-  border: 1px solid var(--Colors-Neutral-Neutral-Alpha-4, rgba(32, 0, 54, 0.09));
+  border: 1px solid ${(props) => props.theme.border.medium};
   border-radius: 50%;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
   svg,
   img {
     height: 18px;
@@ -172,7 +197,8 @@ export const EngagementRight = styled.span`
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: rgba(33, 31, 38, 1);
+  color: ${(props) => props.theme.text.primary};
+  transition: color 0.2s ease;
 `;
 
 export const SeeOthersSection = styled.div`
@@ -183,15 +209,16 @@ export const SeeOthersSection = styled.div`
 export const SeeOthersText = styled.p`
   margin: 0;
   font-size: 20px;
-  line-height:28px
+  line-height: 28px;
   font-weight: 600;
-  color: rgba(33, 31, 38, 1);
+  color: ${(props) => props.theme.text.primary};
   font-family: "Be Vietnam Pro", sans-serif;
   margin-bottom: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: color 0.2s ease;
 `;
 
 export const SeeOthersAvatars = styled.div`
@@ -205,8 +232,9 @@ export const AvatarCircle = styled.img`
   height: 24px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ffffff;
+  border: 2px solid ${(props) => props.theme.bg.primary};
   margin-right: -8px;
+  transition: border-color 0.2s ease;
 
   &:last-child {
     margin-right: 0;
@@ -218,8 +246,9 @@ export const ParticipantsText = styled.p`
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
-  color: rgba(33, 31, 38, 1);
+  color: ${(props) => props.theme.text.primary};
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: color 0.2s ease;
   b {
     font-weight: 700;
     line-height: 16px;
@@ -228,14 +257,18 @@ export const ParticipantsText = styled.p`
 `;
 
 export const OthersPostCard = styled.div`
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.bg.post || props.theme.bg.primary};
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--Colors-Neutral-Neutral-Alpha-6, rgba(20, 0, 53, 0.15));
+  box-shadow: 0 1px 3px ${(props) => props.theme.shadow.md};
+  border: 1px solid ${(props) => props.theme.border.medium};
   max-width: 640px;
   width: 100%;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 `;
 
 export const PinnedIndicator = styled.div`
@@ -249,8 +282,8 @@ export const PinnedIndicator = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  border-bottom: 1px solid
-    var(--Colors-Neutral-Neutral-4, rgba(234, 231, 236, 1));
+  border-bottom: 1px solid ${(props) => props.theme.border.light};
+  transition: border-color 0.2s ease;
 `;
 
 export const PostContent = styled.div`
@@ -261,9 +294,10 @@ export const PostDescription = styled.p`
   margin: 0 0 16px 0;
   font-size: 14px;
   font-weight: 400;
-  color: #374151;
+  color: ${(props) => props.theme.text.primary};
   line-height: 20px;
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: color 0.2s ease;
 `;
 
 export const ChecklistItem = styled.div`
@@ -273,8 +307,9 @@ export const ChecklistItem = styled.div`
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 400;
-  color: #374151;
+  color: ${(props) => props.theme.text.primary};
   font-family: "Be Vietnam Pro", sans-serif;
+  transition: color 0.2s ease;
 
   &:last-child {
     padding-bottom: 0;
@@ -287,11 +322,14 @@ export const CheckIcon = styled.span`
   justify-content: center;
   min-width: 20px;
   height: 20px;
-  background-color: #e5e4e8;
+  background-color: ${(props) => props.theme.bg.tertiary};
   border-radius: 4px;
   font-size: 12px;
-  color: #6b7280;
+  color: ${(props) => props.theme.text.secondary};
   flex-shrink: 0;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 `;
 
 export const ChecklistItemText = styled.span`

@@ -1,3 +1,27 @@
+:root {
+  --theme-bg-primary: #ffffff;
+  --theme-bg-secondary: #f9fafb;
+  --theme-bg-tertiary: #f3f4f6;
+  --theme-text-primary: #111827;
+  --theme-text-secondary: #6b7280;
+  --theme-text-tertiary: #9ca3af;
+  --theme-border-light: rgba(0, 0, 0, 0.04);
+  --theme-border-medium: rgba(8, 0, 49, 0.27);
+  --theme-border-dark: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="dark"] {
+  --theme-bg-primary: #0f172a;
+  --theme-bg-secondary: #1e293b;
+  --theme-bg-tertiary: #334155;
+  --theme-text-primary: #f1f5f9;
+  --theme-text-secondary: #cbd5e1;
+  --theme-text-tertiary: #94a3b8;
+  --theme-border-light: rgba(255, 255, 255, 0.08);
+  --theme-border-medium: rgba(226, 232, 240, 0.27);
+  --theme-border-dark: rgba(226, 232, 240, 0.12);
+}
+
 body {
   margin: 0;
   font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -5,6 +29,9 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--theme-bg-primary);
+  color: var(--theme-text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 code {

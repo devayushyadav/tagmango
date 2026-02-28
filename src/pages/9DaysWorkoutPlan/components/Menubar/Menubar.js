@@ -2,13 +2,18 @@ import { NavLink, useParams } from "react-router-dom";
 import { WorkoutPlanMenuBar } from "../../Styles/PageWrapper";
 import { useDeviceType } from "../../../../hooks/useMediaQuery";
 import CheckIcon from "../../../../assets/images/greenCheck.svg";
-import LockIcon from "../../../../assets/images/lock.svg";
+import LockLight from "../../../../assets/images/lightmodesvgs/lock.svg";
+import LockDark from "../../../../assets/images/darkmodesvgs/lock.svg";
+import { useTheme } from "../../../../context/ThemeContext";
 
 const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const Menubar = () => {
   const { day } = useParams();
   const [isSmallDevice] = useDeviceType();
+  const { theme } = useTheme();
+
+  const lockIcon = theme === "light" ? LockLight : LockDark;
 
   const currentDay = parseInt(day, 10);
 
@@ -29,7 +34,7 @@ const Menubar = () => {
                 <span className="current-day">{currentDay}</span>
               )}
               {currentDay > page && <img src={CheckIcon} alt="Completed" />}
-              {currentDay < page && <img src={LockIcon} alt="Locked" />}
+              {currentDay < page && <img src={lockIcon} alt="Locked" />}
             </>
           ) : (
             <>
@@ -37,7 +42,7 @@ const Menubar = () => {
               {currentDay >= page ? (
                 <img src={CheckIcon} alt="Completed" />
               ) : (
-                <img src={LockIcon} alt="Locked" />
+                <img src={lockIcon} alt="Locked" />
               )}
             </>
           )}

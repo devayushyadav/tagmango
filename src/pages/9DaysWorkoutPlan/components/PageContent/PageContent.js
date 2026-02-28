@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "../../../../context/ThemeContext";
 import { WorkoutPlanContent } from "../../Styles/PageWrapper";
 import {
   MyPostCard,
@@ -34,12 +35,15 @@ import {
 } from "./Styles/PageContentWrapper";
 import UserIcon from "../../../../assets/images/user.svg";
 import MyPostImage from "../../../../assets/images/Post.png";
-import CommentIcon from "../../../../assets/images/Comment.svg";
-import ReactionIcon from "../../../../assets/images/Reactions.svg";
+import CommentLight from "../../../../assets/images/lightmodesvgs/comment.svg";
+import CommentDark from "../../../../assets/images/darkmodesvgs/comment.svg";
+import ReactionLight from "../../../../assets/images/lightmodesvgs/reaction.svg";
+import ReactionDark from "../../../../assets/images/darkmodesvgs/reaction.svg";
 import Avatar1 from "../../../../assets/images/UserOne.png";
 import Avatar2 from "../../../../assets/images/UserTwo.png";
 import Avatar3 from "../../../../assets/images/UserThree.png";
-import PinIcon from "../../../../assets/images/pin.svg";
+import PinLight from "../../../../assets/images/lightmodesvgs/pin.svg";
+import PinDark from "../../../../assets/images/darkmodesvgs/pin.svg";
 
 const PageContent = ({
   myPost = {
@@ -66,6 +70,10 @@ const PageContent = ({
   },
   othersAvatars = [Avatar1, Avatar2, Avatar3],
 }) => {
+  const { theme } = useTheme();
+  const commentIcon = theme === "light" ? CommentLight : CommentDark;
+  const reactionIcon = theme === "light" ? ReactionLight : ReactionDark;
+  const pinIcon = theme === "light" ? PinLight : PinDark;
   return (
     <WorkoutPlanContent>
       {/* My Post Card */}
@@ -97,10 +105,10 @@ const PageContent = ({
               <span className="likes">{myPost.likes}</span>
             </EngagementGroup>
             <EngageIcon>
-              <img src={ReactionIcon} alt="React" />
+              <img src={reactionIcon} alt="React" />
             </EngageIcon>
             <EngageIcon>
-              <img src={CommentIcon} alt="Comment" />
+              <img src={commentIcon} alt="Comment" />
             </EngageIcon>
           </EngagementLeft>
           <EngagementRight>{myPost.comments} Comments</EngagementRight>
@@ -129,7 +137,7 @@ const PageContent = ({
         <OthersPost>
           {othersPost.isPinned && (
             <PinnedIndicator>
-              <img src={PinIcon} alt="Pinned" />
+              <img src={pinIcon} alt="Pinned" />
               This is a pinned post
             </PinnedIndicator>
           )}
