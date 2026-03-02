@@ -59,7 +59,7 @@ export const MyPostCard = styled.div`
 `;
 
 export const OthersPost = styled.div`
-  margin: 0 12px;
+  margin: 0 12px 24px;
   border-radius: 24px;
   border: 1px solid ${(props) => props.theme.border.light};
   transition: border-color 0.2s ease;
@@ -248,7 +248,6 @@ export const AvatarCircle = styled.img`
   height: 24px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid ${(props) => props.theme.bg.primary};
   margin-right: -8px;
   transition: border-color 0.2s ease;
 

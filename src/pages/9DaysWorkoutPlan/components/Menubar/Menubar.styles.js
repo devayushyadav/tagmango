@@ -11,7 +11,7 @@ export const WorkoutPlanMenuBar = styled.div`
   height: fit-content;
 
   .navigation-links-container {
-    max-height: calc(100vh - 118px);
+    max-height: calc(100vh - 206px);
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -24,13 +24,13 @@ export const WorkoutPlanMenuBar = styled.div`
     padding-left: 8px;
     padding-right: 0;
     padding-bottom: 12px;
-    
+
     background: ${(props) =>
       props.theme.mode === "dark"
         ? "rgb(0 0 0 / 79%)"
         : "rgb(255 255 255 / 29%)"};
     backdrop-filter: blur(4px) saturate(196%);
-        
+
     @media (max-width: 768px) {
       max-height: none;
       height: auto;
@@ -82,7 +82,7 @@ export const WorkoutPlanMenuBar = styled.div`
         props.theme.mode === "dark" ? "#ffffff" : "rgba(33, 31, 38, 1)"};
       border-radius: 50px 0 0 50px;
       position: relative;
-      
+
       @media (max-width: 768px) {
         margin-bottom: -12px;
         padding: 8px 16px 21px;
@@ -94,7 +94,9 @@ export const WorkoutPlanMenuBar = styled.div`
         width: 30px;
         height: 30px;
         background-image: ${(props) =>
-          props.theme.mode === "dark" ? `url(${curveDark})` : `url(${curveLight})`};
+          props.theme.mode === "dark"
+            ? `url(${curveDark})`
+            : `url(${curveLight})`};
         background-size: contain;
         background-repeat: no-repeat;
         top: -25px;
@@ -113,7 +115,9 @@ export const WorkoutPlanMenuBar = styled.div`
         width: 30px;
         height: 30px;
         background-image: ${(props) =>
-          props.theme.mode === "dark" ? `url(${curveDark})` : `url(${curveLight})`};
+          props.theme.mode === "dark"
+            ? `url(${curveDark})`
+            : `url(${curveLight})`};
         background-size: contain;
         background-repeat: no-repeat;
         bottom: -23px;

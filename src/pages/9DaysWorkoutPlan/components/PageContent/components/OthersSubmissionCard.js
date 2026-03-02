@@ -23,7 +23,7 @@ import {
 import PinLight from "../../../../../assets/images/lightmodesvgs/pin.svg";
 import PinDark from "../../../../../assets/images/darkmodesvgs/pin.svg";
 
-const OthersSubmissionCard = ({ post, othersAvatars }) => {
+const OthersSubmissionCard = ({ posts, othersAvatars }) => {
   const { theme } = useTheme();
   const pinIcon = theme === "light" ? PinLight : PinDark;
 
@@ -46,34 +46,37 @@ const OthersSubmissionCard = ({ post, othersAvatars }) => {
         </ParticipantsText>
       </SeeOthersSection>
 
-      <OthersPost>
-        {post.isPinned && (
-          <PinnedIndicator>
-            <img src={pinIcon} alt="Pinned" />
-            This is a pinned post
-          </PinnedIndicator>
-        )}
-        <PostHeader>
-          <PostUserInfo>
-            <PostUserAvatar src={post.userAvatar} alt={post.userName} />
-            <PostUserDetails>
-              <PostUserName>{post.userName}</PostUserName>
-              <PostUserTime>{post.time}</PostUserTime>
-            </PostUserDetails>
-          </PostUserInfo>
-          <PostMenuIcon>⋯</PostMenuIcon>
-        </PostHeader>
+      {/* iterate through all posts */}
+      {posts.map((post, idx) => (
+        <OthersPost key={idx}>
+          {post.isPinned && (
+            <PinnedIndicator>
+              <img src={pinIcon} alt="Pinned" />
+              This is a pinned post
+            </PinnedIndicator>
+          )}
+          <PostHeader>
+            <PostUserInfo>
+              <PostUserAvatar src={post.userAvatar} alt={post.userName} />
+              <PostUserDetails>
+                <PostUserName>{post.userName}</PostUserName>
+                <PostUserTime>{post.time}</PostUserTime>
+              </PostUserDetails>
+            </PostUserInfo>
+            <PostMenuIcon>⋯</PostMenuIcon>
+          </PostHeader>
 
-        <PostContent>
-          <PostDescription>{post.description}</PostDescription>
+          <PostContent>
+            <PostDescription>{post.description}</PostDescription>
 
-          {post.checklist.map((item, index) => (
-            <ChecklistItem key={index}>
-              <ChecklistItemText>{item}</ChecklistItemText>
-            </ChecklistItem>
-          ))}
-        </PostContent>
-      </OthersPost>
+            {post.checklist.map((item, index) => (
+              <ChecklistItem key={index}>
+                <ChecklistItemText>{item}</ChecklistItemText>
+              </ChecklistItem>
+            ))}
+          </PostContent>
+        </OthersPost>
+      ))}
     </OthersPostCard>
   );
 };

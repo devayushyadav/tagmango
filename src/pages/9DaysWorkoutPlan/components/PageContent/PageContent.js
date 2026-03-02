@@ -18,19 +18,50 @@ const PageContent = ({
     comments: 10,
     time: "1s",
   },
-  othersPost = {
-    userName: "Russell Brunson",
-    userAvatar: RusselIcon,
-    time: "3 hrs ago",
-    description:
-      "This 9-day fitness challenge is designed to help you build consistency, boost energy, and feel stronger—one day at a time. Each day comes with a simple, achievable fitness task that fits easily into your routine, no matter your current fitness level.",
-    isPinned: true,
-    checklist: [
-      "1️⃣ Minimum 20 minutes of sit-up",
-      "2️⃣ Mention Intensity",
-      "3️⃣ Upload Media (Optional)",
-    ],
-  },
+  // change to an array of posts; first item is pinned
+  othersPosts = [
+    {
+      userName: "Russell Brunson",
+      userAvatar: RusselIcon,
+      time: "3 hrs ago",
+      description:
+        "This 9-day fitness challenge is designed to help you build consistency, boost energy, and feel stronger—one day at a time. Each day comes with a simple, achievable fitness task that fits easily into your routine, no matter your current fitness level.",
+      isPinned: true,
+      checklist: [
+        "1️⃣ Minimum 20 minutes of sit-up",
+        "2️⃣ Mention Intensity",
+        "3️⃣ Upload Media (Optional)",
+      ],
+    },
+    {
+      userName: "Jane Doe",
+      userAvatar: Avatar1,
+      time: "2 hrs ago",
+      description: "Completed day 2! Feeling great.",
+      isPinned: false,
+      checklist: ["1️⃣ Minimum 20 minutes of sit-up", "2️⃣ Mention Intensity"],
+    },
+    {
+      userName: "John Smith",
+      userAvatar: Avatar2,
+      time: "4 hrs ago",
+      description: "Day 3 done, energy levels up.",
+      isPinned: false,
+      checklist: [
+        "1️⃣ Minimum 20 minutes of sit-up",
+        "2️⃣ Mention Intensity",
+        "3️⃣ Upload Media (Optional)",
+      ],
+    },
+    {
+      userName: "Alex Johnson",
+      userAvatar: Avatar3,
+      time: "5 hrs ago",
+      description: "Third workout complete - keeping the momentum!",
+      isPinned: false,
+      checklist: ["1️⃣ Minimum 20 minutes of sit-up"],
+    },
+  ],
   othersAvatars = [Avatar1, Avatar2, Avatar3],
 }) => {
   return (
@@ -39,7 +70,7 @@ const PageContent = ({
       <MySubmissionCard post={myPost} />
 
       {/* Others Post Card */}
-      <OthersSubmissionCard post={othersPost} othersAvatars={othersAvatars} />
+      <OthersSubmissionCard posts={othersPosts} othersAvatars={othersAvatars} />
     </WorkoutPlanContent>
   );
 };
