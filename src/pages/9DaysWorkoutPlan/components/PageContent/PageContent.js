@@ -2,6 +2,7 @@ import { WorkoutPlanContent } from "../../Styles/PageWrapper";
 import MySubmissionCard from "./components/MySubmissionCard";
 import OthersSubmissionCard from "./components/OthersSubmissionCard";
 import UserIcon from "../../../../assets/images/user.svg";
+import RusselIcon from "../../../../assets/images/Russel.png";
 import MyPostImage from "../../../../assets/images/Post.png";
 import Avatar1 from "../../../../assets/images/UserOne.png";
 import Avatar2 from "../../../../assets/images/UserTwo.png";
@@ -19,7 +20,7 @@ const PageContent = ({
   },
   othersPost = {
     userName: "Russell Brunson",
-    userAvatar: UserIcon,
+    userAvatar: RusselIcon,
     time: "3 hrs ago",
     description:
       "This 9-day fitness challenge is designed to help you build consistency, boost energy, and feel stronger—one day at a time. Each day comes with a simple, achievable fitness task that fits easily into your routine, no matter your current fitness level.",
