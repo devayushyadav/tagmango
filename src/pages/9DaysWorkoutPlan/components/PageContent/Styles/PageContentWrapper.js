@@ -3,8 +3,8 @@ import ConfettiImage from "../../../../../assets/images/Confetti.svg";
 
 export const ConfettiContainer = styled.div`
   border-radius: 24px 24px 0 0;
-  background: url(${ConfettiImage}) no-repeat center center;
-  background-size: cover;
+  background: url(${ConfettiImage});
+  background-size: contain;
   background-color: ${(props) => props.theme.accent.greenBg};
   min-height: 100px;
   text-align: center;
@@ -187,9 +187,10 @@ export const EngagementGroup = styled.div`
   }
 `;
 
-export const EngagementIcon = styled.span`
+export const EngagementIcon = styled.img`
   width: 16px;
   height: 24px;
+  object-fit: contain;
 `;
 
 export const EngageIcon = styled.img`

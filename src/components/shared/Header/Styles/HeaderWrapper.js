@@ -68,7 +68,7 @@ export const StreakPill = styled.div`
   line-height: 24px;
   letter-spacing: 0;
   gap: 8px;
-  height: 32px;
+  max-height: 32px;
   padding: 4px 8px;
   border-radius: 999px;
   color: ${(props) => props.theme.streakPill.text};
@@ -82,8 +82,8 @@ export const IconButton = styled.button`
   padding: 7px;
   border: 1px solid ${(props) => props.theme.icon.border};
   border-radius: 50%;
-  max-width: 32px;
-  max-height: 32px;
+  height: 32px;
+  width: 32px;
   cursor: pointer;
   transition:
     border-color 0.2s ease,

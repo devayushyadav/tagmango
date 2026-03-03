@@ -18,10 +18,12 @@ import {
   EngagementGroup,
   EngageIcon,
 } from "../Styles/PageContentWrapper";
-import CommentLight from "../../../../../assets/images/lightmodesvgs/comment.svg";
-import CommentDark from "../../../../../assets/images/darkmodesvgs/comment.svg";
-import ReactionLight from "../../../../../assets/images/lightmodesvgs/reaction.svg";
-import ReactionDark from "../../../../../assets/images/darkmodesvgs/reaction.svg";
+import CommentLight from "../../../../../assets/images/lightmodesvgs/comment.png";
+import CommentDark from "../../../../../assets/images/darkmodesvgs/comment.png";
+import ReactionLight from "../../../../../assets/images/lightmodesvgs/reaction.png";
+import ReactionDark from "../../../../../assets/images/darkmodesvgs/reaction.png";
+import HandsEmoji from "../../../../../assets/images/hands.png";
+import SmileEmoji from "../../../../../assets/images/emoticon.png";
 
 const MySubmissionCard = ({ post }) => {
   const { theme } = useTheme();
@@ -52,8 +54,8 @@ const MySubmissionCard = ({ post }) => {
         <PostEngagement>
           <EngagementLeft>
             <EngagementGroup>
-              <EngagementIcon>🙏</EngagementIcon>
-              <EngagementIcon>😊</EngagementIcon>
+              <EngagementIcon src={HandsEmoji} />
+              <EngagementIcon src={SmileEmoji} />
               <span className="likes">{post.likes}</span>
             </EngagementGroup>
             <EngageIcon src={reactionIcon} alt="React" />

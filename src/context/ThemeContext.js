@@ -18,7 +18,7 @@ export const lightTheme = {
   },
   // Borders & Dividers
   border: {
-    light: "rgba(0, 0, 0, 0.04)",
+    light: "rgba(234, 231, 236, 1)",
     medium: "rgba(8, 0, 49, 0.27)",
     dark: "rgba(15, 23, 42, 0.08)",
   },
